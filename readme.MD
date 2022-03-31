@@ -8,3 +8,7 @@ The entry point of any Electron application is its main script. This script cont
 
 to create a window we need content to load in it that will be a html file.
 In Electron, each window displays web contents that can be loaded from either a local HTML file or a remote URL.
+
+for opening web page in browser window we need 2 electron modules
+The app module, which controls your application's event lifecycle.
+The BrowserWindow module, which creates and manages application windows.
