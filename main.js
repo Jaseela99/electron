@@ -3,14 +3,36 @@
 //The BrowserWindow module, which creates and manages application windows.
 
 const {BrowserWindow, app} = require("electron");
+//const isMac = process.platform === "darwin"
 
 //add a createWindow() function that loads index.html into a new BrowserWindow instance.
 
 const createWindow =() =>{
-    const mainWindow = new BrowserWindwow({
+    const mainWindow = new BrowserWindow({
         width:800,
         height:100
     })
     //to load index.html
     mainWindow.loadFile("index.html");
+
 }
+
+//browser window can be created only after app is ready
+
+app.whenReady().then(()=>{
+    createWindow();
+
+//for mac os 
+ /*  isMac? [ app.on('activate', () => {
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()
+      })]:[] */
+})
+
+//On Windows and Linux, exiting all windows generally quits an application entirely.
+// app module's 'window-all-closed' event, and call app.quit() if the user is not on macOS (darwin).
+
+app.on("window-all-closed",()=>{
+    if(process.platform !=="darwin"){
+        app.quit();
+    }
+})
