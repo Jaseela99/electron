@@ -22,15 +22,14 @@ const createWindow =() =>{
 app.whenReady().then(()=>{
     createWindow();
 
-//for mac os 
+//for mac os  we have to check whether the windows are created or not
  /*  isMac? [ app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
       })]:[] */
 })
 
-//On Windows and Linux, exiting all windows generally quits an application entirely.
-// app module's 'window-all-closed' event, and call app.quit() if the user is not on macOS (darwin).
-
+//On Windows and Linux, exiting all windows generally quits an application entirely=>'window-all-closed' event, and call app.quit() if the user is not on macOS (darwin).
+//for macos we dont need to quit the app
 app.on("window-all-closed",()=>{
     if(process.platform !=="darwin"){
         app.quit();
