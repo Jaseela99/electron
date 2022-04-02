@@ -57,8 +57,6 @@ const template = [
             submenu: [
               { role: "about" },
               { type: "separator" },
-              { role: "services" },
-              { type: "separator" },
               { role: "quit" },
             ],
           },
